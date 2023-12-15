@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    LogIn
+{% endblock %}
+
+{% block head %}
+    <style>
+        body {
+            /* background-color: #33342e; */
+            background-color: #1e1e1e;
+        }
+
+        #logo {
+            height: 100px;
+            width: 100px;
+            display: block;
+            margin: auto;
+            margin-top: 90px;
+            margin-bottom: 30px;
+        }
+
+        #log-in-button {
+            display: block;
+            margin: auto;
+            width: 210px;
+        }
+
+        #back {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #back .btn {
+            width: 210px;
+            border-radius: 5px;
+
+        }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+
+
+<img id="logo" src="/static/android-chrome-192x192.png">
+
+<form action="/banklogin" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text" value="{{ username }}">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password" value="{{ password }}">
+    </div>
+    <button id="log-in-button" class="btn btn-primary" type="submit">Log in</button>
+</form>
+<div id="back">
+    <form action="/login">
+        <button id="log-in-button" class="btn btn-primary" type="submit">Player Login</button>
+    </form>
+</div>
+
+{% endblock %}

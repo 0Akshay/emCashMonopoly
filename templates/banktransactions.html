@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All Transactions
+{% endblock %}
+
+{% block head %}
+    <style>
+        body {
+            background-color: #1e1e1e;
+        }
+
+        #back {
+            text-align: center;
+            padding: 30px 30px 0px 30px;
+        }
+
+        #back .btn {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .section {
+            min-height: 100px;
+            margin: 30px 30px 30px 30px;
+            border-radius: 15px;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .section4 {
+            background-color: #00b59d;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block body %}
+
+<div id="back">
+    <form action="/bankhome">
+        <button id="log-in-button" class="btn btn-primary" type="submit">Back to Dashboard</button>
+    </form>
+</div>
+
+<div class="section section4">
+    <h3>All Game Transactions</h3>
+        <table class="table" id="gametransactions">
+            <thead>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+                <th scope="col">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in transactions %}
+                    <tr>
+                        <td>{{ row["fromusername"] }}</td>
+                        <td>{{ row["tousername"] }}</td>
+                        <td>{{ row["amount"] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All Transactions
+{% endblock %}
+
+{% block head %}
+    <style>
+        body {
+            background-color: #1e1e1e;
+        }
+
+        #confirm {
+            text-align: center;
+            padding: 30px 30px 0px 30px;
+        }
+
+        #back {
+            text-align: center;
+            padding: 30px 30px 0px 30px;
+        }
+
+        #confirm .btn {
+            width: 100%;
+            border-radius: 10px;
+            background-color: #c93c3c;
+        }
+
+        #back .btn {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block body %}
+<div id="confirm">
+    <form action="/confirmrestartgame" method = "post">
+        <button id="log-in-button" class="btn btn-primary" type="submit">Confirm restart game</button>
+    </form>
+</div>
+<div id="back">
+    <form action="/bankhome">
+        <button id="log-in-button" class="btn btn-primary" type="submit">Back</button>
+    </form>
+</div>
+</div>
+{% endblock %}

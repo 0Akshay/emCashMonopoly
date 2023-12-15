@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    LogIn
+{% endblock %}
+
+{% block head %}
+    <style>
+        body {
+            background-color: #2a5e69;
+        }
+
+        #logo {
+            height: 100px;
+            width: 100px;
+            display: block;
+            margin: auto;
+            margin-top: 90px;
+            margin-bottom: 30px;
+        }
+
+        #log-in-button {
+            display: block;
+            margin: auto;
+            width: 210px;
+        }
+
+        #login-or-signup {
+            color: white;
+            display: block;
+            width: 210px;
+            margin: auto;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        #login-or-signup a {
+            margin-right: 10px;
+            text-decoration: None;
+        }
+
+        #login-link {
+            color: white;
+        }
+
+        #signup-link {
+            color: grey;
+        }
+
+        #about {
+            min-width: 280px;
+            position: absolute;
+            width: 100%;
+            top: 620px;
+            color: white;
+            background-color: #6e2d41;
+            height: 500px;
+        }
+
+        #about-heading {
+            font-size: 20px;
+            background-color: #451c29;
+            padding: 7px 20px;
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            border-radius: 15px;
+        }
+
+        #about-info {
+            padding: 50px 40px 0px 40px;
+        }
+
+        p {
+            margin: 0px;
+        }
+
+        #bank-login {
+            text-align: center;
+            padding: 30px 30px 0px 30px;
+            margin-top: 30px;
+        }
+
+        #bank-login .btn {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+<img id="logo" src="/static/android-chrome-192x192.png">
+<div id="login-or-signup">
+    <a id="login-link" href="/login">Login</a>
+    <a id="signup-link" href="/signup">Signup</a>
+</div>
+<form action="/login" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text" value="{{ username }}">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password" value="{{ password }}">
+    </div>
+    <button id="log-in-button" class="btn btn-primary" type="submit">Log in</button>
+</form>
+
+<div id="about">
+    <div id="about-heading"><p>Welcome to eMcash</p></div>
+    <div id="about-info"><p>Monopoly Money - Now Online! <br><br>eMCash is a web app that solves the hassle of handling physical currency when playing Monopoly! Join now to make all your in game Monopoly transactions online while you spend your time making imporant decisions in the game!</p></div>
+
+    <div id="bank-login">
+        <form action="/banklogin">
+            <button id="log-in-button" class="btn btn-primary" type="submit">Bank Login</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

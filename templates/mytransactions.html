@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All Transactions
+{% endblock %}
+
+{% block head %}
+    <style>
+        body {
+            background-color: #451c29;
+        }
+
+        #back {
+            text-align: center;
+            padding: 30px 30px 0px 30px;
+        }
+
+        #back .btn {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .section {
+            background-color: pink;
+            min-height: 100px;
+            margin: 30px 30px 30px 30px;
+            border-radius: 15px;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .section3 {
+            background-color: #c781ac;
+        }
+
+
+
+    </style>
+
+{% endblock %}
+
+{% block body %}
+
+<div id="back">
+    <form action="/home">
+        <button id="log-in-button" class="btn btn-primary" type="submit">Back to Dashboard</button>
+    </form>
+</div>
+
+<div class="section section3">
+    <h3>All My Transactions</h3>
+    <table class="table" id="mytransactions">
+        <thead>
+            <tr>
+                <th scope="col">Status</th>
+                <th scope="col">Amount</th>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in mytransactions %}
+                <tr>
+                    <td>{{ row["status"] }}</td>
+                    <td>{{ row["amount"] }}</td>
+                    <td>{{ row["fromusername"] }}</td>
+                    <td>{{ row["tousername"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock %}
